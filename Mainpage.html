@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('1.webp') fixed; /* Background image added */
+            background-size: cover;
+            filter: blur(5px); /* Apply blur effect */
+            font-family: 'Poppins', Arial, sans-serif; /* Poppins font added */
+        }
+
+        .container {
+            width: 90vw; /* Adjusted to 90% of viewport width */
+            margin: 50px auto;
+            background: rgba(66, 69, 73, 0.7); /* Transparent background */
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Shadow over the background */
+            padding: 20px;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            position: relative; /* Required for absolute positioning of shadow */
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: #5D3FD3; /* Tab color */
+            color: #F0F0F0; /* Slightly darker text color */
+            cursor: pointer;
+            font-weight: 700; /* Bolder font weight */
+            transition: all 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        .tab:hover {
+            background-color: #745ae0; /* Lighter shade on hover */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Hover shadow */
+        }
+
+        .tab:hover::before,
+        .tab:hover::after {
+            content: "";
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        .tab:hover::after {
+            top: 12px;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+            border-radius: 16px;
+        }
+
+        .content {
+            display: none;
+            color: #F0F0F0; /* Set text color to slightly darker off-white */
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        .work {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .work p {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .work img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .work img:hover {
+            transform: scale(1.05);
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .overlay img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #FFF;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .social-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px; /* Adjust spacing between items */
+        }
+
+        .social-item p {
+            margin-right: 10px; /* Adjust spacing between username and icon */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="tabs">
+        <div class="tab" onclick="openTab('about')">About Me</div>
+        <div class="tab" onclick="openTab('work')">Work</div>
+        <div class="tab" onclick="openTab('socials')">Socials</div>
+        <!-- Add more tabs as needed -->
+    </div>
+
+    <div class="content active" id="about">
+        <h2>About Me</h2>
+        <p>Hi my name is 9090, I am a new developer that watched a youtube tutorial to create this website LOL... If you wanted to hire me its best bet you go to someone else till I actually get good at my skills<br><br>The skills I am currently working on are mostly Roblox Studio related, such as coding, building, and animations. If I have made some work, I would update the website to let you all know to check it out.</p>
+    </div>
+
+    <div class="content" id="work">
+        <h2>Work</h2>
+        <div class="work">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis condimentum mattis velit, a cursus tortor faucibus ut. Cras sit amet leo id risus pellentesque laoreet vel nec leo. Aliquam erat volutpat.</p>
+            <img src="2.png" alt="Work Image" onclick="openOverlay(this)">
+        </div>
+    </div>
+
+    <div class="content" id="socials">
+        <h2>Socials</h2>
+        <div class="social-item">
+            <p>Yoits9090</p>
+            <a href="link_to_tiktok_profile"><img src="tiktok.png" alt="TikTok Icon"></a>
+        </div>
+        <div class="social-item">
+            <p>.9090</p>
+            <a href="link_to_twitter_profile"><img src="Twitter.png" alt="Twitter Icon"></a>
+        </div>
+        <div class="social-item">
+            <p>drtyrais_1</p>
+            <a href="link_to_discord_profile"><img src="discord.png" alt="Discord Icon"></a>
+        </div>
+        <div class="social-item">
+            <p>YourRobloxUsername</p>
+            <a href="link_to_roblox_profile"><img src="roblox.png" alt="Roblox Icon"></a>
+        </div>
+    </div>
+    <!-- Add more content sections as needed -->
+</div>
+
+<div class="overlay" onclick="closeOverlay()">
+    <span class="close-btn">&times;</span>
+    <img id="overlayImg" src="" alt="Overlay Image">
+</div>
+
+<script>
+    function openTab(tabName) {
+        var i, content;
+        content = document.getElementsByClassName("content");
+        for (i = 0; i < content.length; i++) {
+            content[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+    }
+    // By default, open the "About Me" tab
+    openTab('about');
+
+    function openOverlay(img) {
+        var overlay = document.querySelector('.overlay');
+        var overlayImg = document.getElementById('overlayImg');
+        overlayImg.src = img.src;
+        overlay.style.display = "block";
+    }
+
+    function closeOverlay() {
+        var overlay = document.querySelector('.overlay');
+        overlay.style.display = "none";
+    }
+</script>
+
+</body>
+</html>
